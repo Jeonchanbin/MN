@@ -3,8 +3,9 @@
 
 /* 공사중표시 */
 body *{
-    outline: 2px dashed rgb(53, 107, 223);
+    outline: 2px dashed lime;
 }
+
 /* 초기화 */
 html,body,h1,h2,h3,ul,ol{
     margin: 0;
@@ -21,26 +22,28 @@ body{
 }
 
 /* 공통class */
-/* 메칼소재 1배경 */
+/* 메탈소재1 배경 */
 .mt1{
     background: url(../images/metal01.jpg) no-repeat center/cover;
 }
-/* 메칼소재 2배경 */
+/* 메탈소재2 배경 */
 .mt2{
     background: url(../images/metal02.jpg) no-repeat center/cover;
 }
-/* 2-1 로봇박스 */
+
+/* 2-1. 로봇박스 */
 .robx{
-    /* 패딩 위, 아래 */
+    /* 패딩 위,아래 */
     padding: 200px 0 400px;
 }
-
 
 /* 2-1-1.로봇머리 */
 .head{
     position: relative;
+    /* 부모자격!!! */
     width: 250px;
     height: 250px;
+    /* 마영오 */
     margin: 0 auto;
 }
 /* 눈공통 */
@@ -49,20 +52,22 @@ body{
     position: absolute;
     width: 50px;
     height: 50px;
-    /* 반복안함 */
+
+    /* 배경공통 */
+    /* 배경반복 : 반복안함 */
     background-repeat: no-repeat;
-    /* 배경위치 중앙 */
+    /* 배경위치 : 중앙 */
     background-position: center;
     /* 배경크기 : 채움 */
     background-size: 100% 100%;
 }
-/* 왼쪽눈 */
-.e1{ 
+/* 왼눈 */
+.e1{
     top: 50px;
     left: 50px;
     background-image: url(../images/e1.jpg);
 }
-/* 오른쪽눈 */
+/* 오른눈 */
 .e2{
     top: 50px;
     right: 50px;
@@ -71,8 +76,8 @@ body{
 /* 코 */
 .nose{
     position: absolute;
-    top: 42%;
-    left: 40%;
+    top: 107px;
+    left: 99px;
     width: 50px;
     height: 70px;
     background: url(../images/nose.jpg) no-repeat 0/100% 100%;
@@ -80,9 +85,9 @@ body{
 /* 입 */
 .mouth{
     position: absolute;
-    top: 74%;
-    left: 35%;
-    width: 70px;
-    height: 40px;
+    bottom: 17px;
+    left: 74px;
+    width: 96px;
+    height: 41px;
     background: url(../images/mouth.png) no-repeat 0/100% 100%;
 }
