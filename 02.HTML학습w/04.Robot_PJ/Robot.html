@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Robot PJ</title>
     <link rel="stylesheet" href="css/robot.css">
-    
+
 </head>
+
 <body>
     <!-- 상단영역 -->
     <header class="top">
@@ -25,10 +27,46 @@
                 <div class="nose"></div>
                 <!-- 입 -->
                 <div class="mouth"></div>
+                <!-- 왼귀 -->
+                <div class="ear er1 mt2"></div>
+                <!-- 오른귀 -->
+                <div class="ear er2 mt2"></div>
             </div>
             <!-- 2-1-2.로봇몸통 -->
-            <DIV class="body"></DIV>
-            
+            <DIV class="body mt1">
+                <!-- 목 -->
+                <div class="neck mt2"></div>
+                <!-- 왼팔 -->
+                <div class="arm a1 mt2"></div>
+                <!-- 오른팔 -->
+                <div class="arm a2 mt2"></div>
+                <!-- 왼다리 -->
+                <div class="leg l1 mt2"></div>
+                <!-- 오른다리 -->
+                <div class="leg l2 mt2"></div>
+                <!-- 왼어께 -->
+                <div class="shd s1 mt1"></div>
+                <!-- 오른어께 -->
+                <div class="shd s2 mt1"></div>
+                <!-- TV -->
+                <div class="tv">
+                    <!-- 스크린 -->
+                    <div class="screen">
+                        <!-- 유튜브 iframe -->
+                        <iframe src="https://www.youtube.com/embed/RMD91n01DuA"></iframe>
+                        
+                        <!-- 
+                            [ iframe : 아이프레임 요소]
+                            inline frame 이라는 말에서 나옴 외부의 다른 시스템이나 페이지 혹은 정보가 특정영역에 아이프레임 요소 내부에 불러와서 보이는 방법을 제공함.
+                            - src 속성 : 불러올 페이지 주소
+                            (종류: 일반웹페이지, 유튜브페이지 등)
+                            - 크기나 보더 속성 변경은 css에서 하는것이 좋다
+                            - 기본 디자인에 프레임보더(테두리) 있음
+                         -->
+                    </div>
+                </div>
+            </DIV>
+
         </section>
     </main>
     <!-- 하단영역 -->
@@ -36,4 +74,5 @@
 
     </footer>
 </body>
+
 </html>

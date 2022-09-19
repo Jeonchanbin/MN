@@ -42,6 +42,8 @@ body{
     width: 250px;
     height: 250px;
     margin: 0 auto;
+    /* 둥근모서리 */
+    border-radius: 20% 20% 0% 0%;
 }
 /* 눈공통 */
 .eye{
@@ -49,12 +51,21 @@ body{
     position: absolute;
     width: 50px;
     height: 50px;
+
+    /* 배경공통 */
+    /* 배경색 */
+    background: #fff;
     /* 반복안함 */
     background-repeat: no-repeat;
     /* 배경위치 중앙 */
     background-position: center;
     /* 배경크기 : 채움 */
     background-size: 100% 100%;
+    /* 둥근모서리: 50% (원) */
+    border-radius: 50%;
+    /* 보더 이중선 */
+    border: 4px double #000;
+
 }
 /* 왼쪽눈 */
 .e1{ 
@@ -76,6 +87,8 @@ body{
     width: 50px;
     height: 70px;
     background: url(../images/nose.jpg) no-repeat 0/100% 100%;
+    /* 둥근모서리 */
+    border-radius: 30px;
 }
 /* 입 */
 .mouth{
@@ -85,4 +98,230 @@ body{
     width: 70px;
     height: 40px;
     background: url(../images/mouth.png) no-repeat 0/100% 100%;
+}
+
+/* 귀공통 */
+.ear{
+    position: absolute;
+    top: 80px;
+    width: 60px;
+    height: 90px;
+}
+/* 왼귀 */
+.er1{
+ left: -60px;
+ border-radius: 30px 0 0 30px;
+}
+/* 오른귀 */
+.er2{
+    right: -60px;
+    border-radius: 0 30px 30px 0;
+}
+
+/*************  ************/
+.body{
+    position: relative;
+    /* 부모자격 - 자식요소 앱솔루트 */
+    width: 250px;
+    height: 310px;
+    /* 마영오 */
+    margin: 0 auto;
+    /* 마진상단 */
+    margin-top: 50px;
+}
+/* 가상요소로 몸 경계선 */
+.body::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: #000;
+    background-image: linear-gradient(#888, #222);
+}
+/* 목 */
+.neck{
+    position: absolute;
+    top: -50px;
+    left: 95px;
+    width: 60px;
+    height: 50px;
+}
+/* 팔공통 */
+.arm{
+    position: absolute;
+    width: 50px;
+    height: 250px;
+    /* 배경셋팅변경 */
+    background-size: 100%;
+    background-repeat: repeat-y;
+}
+/* 가상요소로 손 만들기 */
+.arm::before{
+    content: '';
+    display: block;
+    /* div와 같은 블록요소 느낌 */
+    position: absolute;
+    bottom: -25px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    /* background-col: gold;   */
+    /* 선형 그라데이션 */
+     background-image:
+    /* linear-gradient(red,blue); */
+    /* linear-gradient(to right, red,blue); */
+     /* linear-gradient(to left, red 10%,blue 10%,blue 50%, yellow ); */
+     /* linear-gradient(45deg, red ,blue , yellow ); */
+     /* 원형 그라데이션 */
+     /* radial-gradient(circle, red,blue,yellow) */
+     radial-gradient(farthest-side at 40% 40%, white, #333)
+}
+
+/* 왼쪽가상요소 위치 */
+.arm.a1::before{
+    left: -13px;
+}
+.arm.a2::before{
+    right: -13px;
+}
+/* 
+    [ 배경이미지 - 그라데이션 ]
+    bankground-image : 선형/원형 그라데이션 설정;
+
+    1. 선형 그라데이션
+    linear-gradient(반향/각도, 색1 비율%, 색2 비율%, 색3 비율%, ...)
+    1) 방향값 to top / to bottom / to left / to right
+    2) 각도값 숫자deg -> deg는 degree에서 나온말
+    -> 방향 또는 각도를 사용, 안 쓰면 to bottom이 기본값
+    -> 색상을 쓰고 뒤에 필요한 경우 비율을 사용
+    -> 색상뒤에 비율을 안 쓰면 등분할 됨
+
+    2. 원형 그라데이션
+    redial-gradient(옵션, 색1 비율% ...)
+    1) 옵션: circle - 원형, 안쓰면 박스 크기에 맞춤
+    2) 세밀한 옵션: 특정위치를 중심으로 빛반사효과
+        ->> 세부옵션 at 가로위치 세로위치
+        ->> 세부옵션 종류 4가지:
+            (1) closest-side  (2) farthest-side
+            (3) closest-cerner(3) farthest-corner
+        예) background-image:
+            readial-gradient(closest-side at 30px 15px, white, blue)
+    -> 색상을 쓰고 뒤에 필요한 경우 비율을 사용
+    -> 색상뒤에 비율을 안 쓰면 등분할 됨
+/
+
+/* 가상요소로 손그림자주기 */
+.arm::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -25px;
+    width: 20px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 5px;
+    /* 클리핑 기법을 사용하여 그림자를 삼각형으로 만들자
+    -> 다격형 클리핑
+    clip_path: polygon(x1 y1, x2 y2, ...)
+    -> 소괄호를 비울 수 없다
+    -> 각 좌표는 콤마로 구분한다 */
+    clip-path: polygon(0% 100%, 50% 0, 100% 100%);
+    
+}
+/* 왼손그림자 위치 */
+.arm.a1::after{
+    left: 12px;
+}
+.arm.a2::after{
+    right: 12px;
+}
+/* 왼팔 */
+.a1{
+    left: -60px;
+}
+/* 오른팔 */
+.a2{
+    right: -60px;
+}
+
+/* 다리공통 */
+.leg{
+    position: absolute;
+    top: 100%;
+    width: 70px;
+    height: 300px;
+     /* 배경셋팅변경 */
+    background-size: 100%;
+    background-repeat: repeat-y;
+}
+/* 가상요소로 발만들기 */
+.leg::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -30px;
+    left: -6px;
+    width: 80px;
+    height: 40px;
+    border-radius: 30px 30px 0 0;
+    border-bottom: 20px solid #000;
+    /* 원형그라데이션 */
+    background-image: 
+    radial-gradient(farthest-side at 20px 20px, #fff, #333);
+    background-color: #fff;
+}
+/* 왼다리 */
+.l1{
+    left: 0;
+}
+/* 오른다리 */
+.l2{
+    right: 0;
+}
+/* 어깨공통 */
+.shd{
+    position: absolute;
+    top: -20px;
+    width: 90px;
+    height: 80px;
+}
+/* 왼어깨 */
+.s1{
+    left: -80px;
+    border-radius: 50% 0 0 50%;
+}
+/* 오른어깨 */
+.s2{
+    right: -80px;
+    border-radius: 0 50% 50% 0;
+}
+
+/* TV */
+.tv{
+    position: absolute;
+    left: 10px;
+    top: 50px;
+    width: 220px;
+    height: 150px;
+    background: url(../images/tv.jpg) no-repeat 0/100%;
+    border: 5px ridge lightskyblue;
+}
+.screen{
+    position: absolute;
+    top: 11px;
+    left: 15px;
+    width: 149px;
+    height: 121px
+}
+/* 아이프레임 */
+.screen iframe{
+    position: absolute;
+    top: -2px;
+    left: -3px;
+    width: 104%;
+    height: 100%;
+    border: none;
 }
