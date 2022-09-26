@@ -116,7 +116,20 @@
           .pf3{}
 
           /* 미디어쿼리 */
-         
+         @media screen and (max-width: 1000px){
+            /* root인 html 만 글자크기를 변경하면 하위의 모든 상대단위 글자는 모두 바뀐다 */
+            html{
+                font-size: 12px;
+            }
+            
+         }
+         @media screen and (max-width: 800px){
+            /* root인 html 만 글자크기를 변경하면 하위의 모든 상대단위 글자는 모두 바뀐다 */
+            .f1{
+                font-size: 50px;
+            }
+            
+         }
           
 
 
