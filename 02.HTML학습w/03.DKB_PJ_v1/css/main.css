@@ -186,7 +186,7 @@ body{
 /* 캐릭터 설명 타이틀 */
 .cd h3{
     /* 글자체 ff - 웹폰트 */
-    font-family: 'Gugi';
+    font-family: 'Dokdo';
     /* 글자크기 fz - min() 최대글자크기 지정 */
     font-size: min(1.9vw,24px);
     /* 글자두께 보통 fwn */
@@ -200,7 +200,7 @@ body{
 /* 캐릭터 설명 문단 */
 .cd p{
     /* 글자체 ff */
-    font-family: 'Single Day','ZCOOL KuaiLe';
+    font-family: 'Song Myung', 'Noto Serif Simplified Chinese';
     /* 글자크기 fz */
     font-size: min(1.3vw,18px);
     /* 줄간격 lh */
