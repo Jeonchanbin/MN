@@ -100,7 +100,7 @@ input:focus{
 
 /* 체크박스 영역 */
 .addbx{
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
     font-size: 1.6rem;
 }
@@ -115,6 +115,19 @@ input:focus{
 .addbx span+span::before{
     content: '|';
     margin: 0 15px;
+}
+
+.addbx input+label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    font-size: 20px;
+    outline: 1px solid red;
+}
+
+.addbx input:checked+label{
+    font-weight: 900;
 }
 
 /* 기타링크 */
