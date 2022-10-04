@@ -46,7 +46,10 @@
         // 당연히 먼저 실행된다 따라서 html요소 호출시
         // null값으로 아무것도 불러올 수 없다
         // html 태그를 모두 로딩후 실행해야 함
-        // window객체에 load
+        // window객체에 load이벤트 후에 본 코드를 실행하도록 함
+
+        // [JS 이번트 등록 내장함수 : 
+        // addEventListener()]
         // 버튼들
         let btns = document.querySelectorAll(".btns");
         console.log("버튼들");
