@@ -304,34 +304,108 @@
             ***************************************/
 
             // 객체 생성하기
+            const GU = {
+                name:"공유",
+                tall:"194cm",
+                weight:"74kg",
+                com:"매니지먼트숲",
+                work:"도깨비, 부산행",
+                msg: (txt)=>{  // txt 전달변수
+                    // 메시지 띄우기
+                    alert("팬레터:"+txt);
+                    // 2. 배경이미지 넣기
+                    tg[4].style.background = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Gong_Yoo_%28Sep_2016%29.png/250px-Gong_Yoo_%28Sep_2016%29.png) repeat-x top/auto 100%";
+                    // 3. 글자색
+                    tg[4].style.color = "#fff"
+                    // 4. 글자그림자
+                    tg[4].style.textShadow = "0 0 5px #000";
+                    // 5. 줄간격
+                    tg[4].style.lineHeight = "30px";
+                    // 6. 높이값 변경
+                    tg[4].style.height = "100px";
+                    // 7. 상단패딩 변경
+                    tg[4].style.paddingTop = "100px";
+                    // 8. 트랜지션
+                    tg[4].style.transition = "2s ease-in-out .5s";
+                } ///// msg 메서드 //
+            }; ///////// GU 객체 ////////
+
+            //GU객체 찍어보기 -> 변경내용이 전체객체 찍기에 반영됨
+            console.log("원본GU:",GU);
+
+            // GU객체 속성중 work 값 업데이트
+            GU.work = "도깨비, 부산행, 오징어게임";
             
+            // 객체속성 추가하기
+            // 추가방법: object객체의 속성 정의 메서드 사용
+            // -> object,defineProperty(객체명, 속성명, {value:속성값})
+            // object.defineProperty(GU,"foot", {value:"280cm"});
+            // GU객체에 발사이즈인 foot 속성과 값을 추가함
+
+            // 객체속성 지우기 
+            // delete 객체명.속성명 -> 선택속성제거
+            delete GU.foot;
 
             // GU객체 출력하기 ////////
             // 출력대상: tg[4]
-
+            
             // 줄간격 조정
+            tg[4].style.lineHeight = "24px";
             
 
             // 내용출력
-           
+            tg[4].innerHTML=`
+                저는 ${GU.name}입니다.
+                몸무게는 ${GU.weight}입니다. <br>
+                제 대표작은 ${GU.work} 입니다. <br>
+                제 소속사는 ${GU.com}입니다. 빠이
+
+            `;
 
             // 툴팁 띄우기
             // setAttribute(속성명,값)
-            
+            tg[4].setAttribute("title", GU.name+"팬레터를 확인하세요 바로클릭");
+
 
             // 손가락모양
-            
+            tg[4].style.cursor = "pointer";
+
 
             // 공유박스 클릭시 GU객체 메서드 호출하기
-            
+            tg[4].onclick = ()=>{
+                GU.msg("\n공유님 멋져\n차기작 기대");
+                // \n은 alert창에서 줄 바꿈
+            };
 
             // 미션: tg[5]에 자신이 만든 객체의 정보를 출력하시오
             // 주제는 영화정보
             // 변수명도 자신이 지어본다!
             // 객체의 속성명도 변수형으로 자신이 지어본다!
 
-            
 
+            // 객체 생성 
+            const TG = {
+                제목:"기생충",
+                감독:"봉준호",
+                배우:"송강호, 이선균",
+                장르:"드라마",
+                등급:"15세 관람가",
+                영상: (url)=>{
+                    tg[5].style.src = "url(https://www.youtube.com/watch?v=jBdRhhSt3Bc) no"
+                }
+                
+            };
+            
+            console.log(TG);
+
+            // 내용출력
+            tg[5].innerHTML = `
+                영화명: ${TG.제목} 
+                감독: ${TG.감독} <br>
+                배우: ${TG.배우}
+                장르: ${TG.장르}
+                등급: ${TG.등급}
+            `;
         }; ////////////// loadFn 함수 //////////////////
         ////////////////////////////////////////////////
 
