@@ -384,28 +384,82 @@
 
 
             // 객체 생성 
-            const TG = {
+            const myMV = {
                 제목:"기생충",
                 감독:"봉준호",
                 배우:"송강호, 이선균",
                 장르:"드라마",
                 등급:"15세 관람가",
-                영상: (url)=>{
-                    tg[5].style.src = "url(https://www.youtube.com/watch?v=jBdRhhSt3Bc) no"
+                예고편: ()=>{
+
+                    // 1. 영화박스를 만들고 iframe 을 넣어준다
+                    // 대상: #TG
+                    const mvbx = document.querySelector("#mvbx");
+                    
+                    // 영화박스에 아이프래임용 박스 넣기
+                    mvbx.innerHTML=`
+                        <div id="mv">
+                            <iframe width="100%" height="100%" 
+                            src="https://www.youtube.com/embed/jBdRhhSt3Bc?autoplay=1"allow="autoplay">></iframe>
+
+                            /* 닫기버튼 */
+                            <button class="cbtn">x</button>
+                        </div>
+                    `;
+
+                    const mv = document.querySelector("#mv");
+                    let mst = mv.style;
+
+                    mst.position = "fixed";
+                    mst.top = "50%";
+                    mst.left = "50%";
+                    mst.transform = "translate(-50%,-50%)"
+                    mst.width = "700px";
+                    mst.height = "450px";
+                    mst.backgroundColor = "#000";
+
+                    // 닫기버튼
+                    const cbtn = document.querySelector(".cbtn");
+                    let cst = cbtn.style;
+
+                    cst.position = "absolute";
+                    cst.top = "0";
+                    cst.right = "-70px";
+                    cst.width = "50px";
+                    cst.height = "50px";
+                    cst.backgroundColor = "blue";
+                    cst.border = "none";
+                    cst.color = "#fff";
+                    cst.fontSize = "40px";
+                    cst.fontWeight = "bold";
+                    cst.borderRadius = "50%";
+                    cst.cursor = "pointer";
+                    // 닫기버튼 클릭시 #mv지우기
+                    cbtn.onclick = () => mv.remove();
                 }
                 
             };
             
-            console.log(TG);
+            // 줄간격
+            tg[5].style.lineHeight="34px";
 
             // 내용출력
             tg[5].innerHTML = `
-                영화명: ${TG.제목} 
-                감독: ${TG.감독} <br>
-                배우: ${TG.배우}
-                장르: ${TG.장르}
-                등급: ${TG.등급}
+                영화명: ${myMV.제목} 
+                감독: ${myMV.감독} <br>
+                배우: ${myMV.배우}
+                장르: ${myMV.장르}
+                등급: ${myMV.등급}
             `;
+
+            // 툴팁 
+            tg[5].title =
+                `클릭하시면 ${myMV.제목} 예고편을 보실 수 있습니다!`;
+            // 손가락 모양
+            tg[5].style.cursor = "pointer";
+            // 예고편  메서드 호출
+            tg[5].onclick = myMV.예고편;
+
         }; ////////////// loadFn 함수 //////////////////
         ////////////////////////////////////////////////
 
