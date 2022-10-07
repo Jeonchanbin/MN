@@ -49,7 +49,7 @@ body{
 .gnb{
     /* 앱솔루트 포지션 */
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     right: 20px;
     /* 부모는? .top */
 }
@@ -66,6 +66,8 @@ body{
     position: relative;
     font-size: 2rem;
     padding: 0 10px;
+    /* 하단패딩-서브메뉴 아웃문제 해결 */
+    padding-bottom: 5px;
 }
 
 /* GNB 서브메뉴 */
@@ -129,8 +131,20 @@ body{
 }
 /* 서브메뉴 오버시 이모지 가상요소로 넣기 */
 /* 이모지는 윈도우키+세미콜론(;) 단축키 */
-.smenu a:hover::after{
+.gnb ul>li:nth-child(1) .smenu a:hover::after{
     content: '😍';
+    float: right;
+}
+.gnb ul>li:nth-child(2) .smenu a:hover::after{
+    content: '🎬';
+    float: right;
+}
+.gnb ul>li:nth-child(3) .smenu a:hover::after{
+    content: '🎥';
+    float: right;
+}
+.gnb ul>li:nth-child(4) .smenu a:hover::after{
+    content: '🎁';
     float: right;
 }
 
@@ -183,6 +197,7 @@ body{
     display: flex;
     /* 수평방향 정렬 */
     justify-content: center;
+    perspective: 480px;
 }
 /* 상위 li */
 .mlist ul>li{
@@ -192,6 +207,17 @@ body{
     /* 부모자격이 있는 요소가
     앱솔루트 숨길 수 있다! */
     overflow: hidden;
+    /* 트랜스폼 축 변경 - 하위 */
+    transform-origin: bottom;
+    transform: rotateX(10deg);
+    transition: all .4s ease-out;
+}
+/* 상위 li에 마우스 오버시 일어나게 하기 */
+.mlist ul>li:hover, .mlist ul>li.on{
+    transform: rotateX(0deg);
+    outline: 1px solid aqua;
+    /* 오버시 맨위로 오게 z-index */
+    z-index: 1;
 }
 /* 상위 li 2번째 부터 끝까지 선택 */
 .mlist>ul>li+li{
