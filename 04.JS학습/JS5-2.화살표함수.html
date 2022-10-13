@@ -62,29 +62,38 @@
         ****************************************************/
 
         // 일반적인 할당형 함수 /////
-        
+        let x = function(a,b){
+            return a * b;
+        };
 
         // 함수호출하기
+        console.log("x(100,20)함수호출:",x(100,20));
         
-
         // 축약형
-          
-
+        let y = function(a,b){
+            return a - b;
+        } 
         // 함수호출하기
+        console.log("y(500,150)함수호출:",y(500,150));
         
-
-
+        
+        
         // 좀더 축약!
+        let z = (a,b) => a - b;
         
-
+        
+        
         // 함수호출하기
+        console.log("z(500,150)함수호출:",z(500,150));
         
 
 
         // 일반적인 함수할당
-        
+        let my = function(x){
+            return (`나는 ${x}다`);
+        };
         // 함수호출하기
-        
+        console.log(my("풀스택 개발자"));
 
         // 축약형 
         // - 전달변수가 하나일때 소괄호() 생략가능!
@@ -94,6 +103,7 @@
         ////////// we 함수 ///////////
 
         // 함수호출하기
+        let we = x => `나는 ${x}다`;
         
 
 
@@ -102,10 +112,19 @@
 
             // 버튼요소
             let btn = document.querySelectorAll(".btn");
+            console.log(btn);
 
             // 버튼요소 클릭시 글자 바꾸기 //////
 
             // 기존방식 /////
+            btn[0].onclick = function(){
+                // 클릭된 요소 자신 -> this키워드 
+                // 화살표 함수에서 this는 window객체임 
+                // 요소자신은 이벤트 속성의 매서드
+                console.log(this,event.currentTarget);
+                // 버튼 글자변경
+                // this.innerText = "올드익명함수다";
+            }; ///// click /////
             
 
 
