@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded",()=>{
                 case "트위터 바로가기": url = "twit"; break;
                 case "인스타그램 바로가기": url = "insta";break;
                 case "페이스북 바로가기": url = "fab"; break;
-                default : url = "index.html";
+                default : url = "index";
             }/////////////// swich case //////////////////
 
             console.log("url:",url);
