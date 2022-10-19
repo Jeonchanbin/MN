@@ -9,28 +9,31 @@
 
 /* 공사중 표시 */
 /* body * {
-    /* outline: 1px dotted red; */
-/* } */ 
-/* 메인겉박스 */
+    outline: 1px dotted red;
+} */
+
+/* 메인 겉박스 */
 #cont{
+    /* 전체 메인 배경색 */
     background-color: #d7d7d7;
 }
+
 /* 메인 속박스 */
 .cont{
     /* 최소높이설정 : 내용넘칠경우 자동auto */
     min-height: 600px;
 }
 
-/* 1.타이틀 */
+/* 1. 타이틀 */
 .stit{
     font-size: 5rem;
     text-align: center;
     padding: 40px 0 20px;
     font-weight: normal;
 }
-/* 2.컨텐츠박스 */
+/* 2. 컨텐츠박스 */
 .scont{
-    /* 렐러티브 포지션 (btnbx의 부모) */
+    /* 렐러티브 포지션 (부모자격:.btnbx) */
     position: relative;
     max-width: 700px;
     min-height: 275px;
@@ -40,7 +43,7 @@
     border-radius: 10px;
     border: 2px solid #777;
     padding: 60px 15px;
-    /* 박스크기유지: 보더, 패딩 ㅠㅗ함 */
+    /* 박스크기유지: 보더,패딩포함 bxb */
     box-sizing: border-box;
 }
 
@@ -50,6 +53,7 @@
     display: inline-block;
     width: 150px;
     font-size: 2rem;
+    font-weight: bold;
     color: #555;
     text-align: center;
     line-height: 3.6rem;
@@ -60,9 +64,10 @@
     width: 320px;
     height: 36px;
     border: 1px solid #777;
+    border-radius: 5px;
     font-size: 1.8rem;
     padding-left: 15px;
-    /* 크기유지 bxb*/
+    /* 크기유지 bxb */
     box-sizing: border-box;
     color: #555;
 }
@@ -72,8 +77,8 @@
     margin-top: 20px;
 }
 
-/* 포커스 아웃라인 제거 
-모든 브라우저에 기본 포커스 아웃라인 셋팅됨*/
+/* 포커스 아웃라인 제거
+모든 브라우저에 기본 포커스 아웃라인 셋팅됨! */
 input:focus{
     outline: none;
 }
@@ -83,16 +88,17 @@ input:focus{
     position: absolute;
     top: 60px;
     right: 60px;
-    /* 부모 - scont */
+    /* 부모는? .scont */
 }
-/* 서브밋 버튼 */
+/* 서브밋버튼 */
 #sbtn{
     width: 113px;
     height: 92px;
     border: 1px solid #888;
     border-radius: 5px;
-    /* 배경그라데이션 */
-    background-image: linear-gradient(to bottom, #ddd, #555);
+    /* 배경 그라데이션 */
+    background-image: 
+    linear-gradient(to bottom,#ddd,#555);
     color: #fff;
     font-size: 1.5rem;
     text-shadow: 1px 1px #555;
@@ -100,7 +106,7 @@ input:focus{
 
 /* 체크박스 영역 */
 .addbx{
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: center;
     font-size: 1.6rem;
     /* 글자 선택영역 안잡히게 방지 */
@@ -109,32 +115,28 @@ input:focus{
 
 /* 체크박스 라벨과 세로정렬 */
 .addbx input{
-    vertical-align: -3px;
-    width: 0;
+    width: 0;/* 체크박스 안보임 */
+    /* vertical-align: -3px; */
 }
-
-/* 기타링크 구분선 */
-/* span+span = 앞에 span이 있는 span형제 */
-.addbx span+span::before{
-    content: '|';
-    margin: 0 15px;
-}
-
-/* 체크박스 아이콘을 라벨에 넣기 */
+/* 체크박스 아이콘을 라벨에 넣기! */
 .addbx input+label{
     display: inline-block;
     width: 20px;
     height: 20px;
-    vertical-align: middle;
     vertical-align: -3px;
     font-size: 20px;
     color: orangered;
     margin-right: 5px;
     /* outline: 1px solid red; */
 }
-
+/* 체크박스 체크시 아이콘 변경 */
 .addbx input:checked+label{
     font-weight: 900;
 }
 
-/* 기타링크 */
+/* 기타링크 구분선 */
+/* span+span 앞에 span이 있는 span형제 */
+.addbx span+span::before{
+    content: '|';
+    margin: 0 15px;
+}
