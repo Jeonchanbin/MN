@@ -37,6 +37,6 @@
     }
     .addbx span:nth-child(3)::before{
         content: '';
-        
+        display: block;
     }
 } /**************** 750px이하 ****************/
