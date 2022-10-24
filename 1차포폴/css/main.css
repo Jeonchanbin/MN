@@ -4,6 +4,7 @@ body * {
     outline: 1px solid black;
 }
 
-#top{
+.top{
     height: 959px;
+    background-image: url("../image/gang.png");
 }
