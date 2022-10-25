@@ -1,10 +1,29 @@
 @charset "utf-8";
 
 body * {
-    outline: 1px solid black;
+    outline: 1px solid yellow;
 }
 
-.top{
-    height: 959px;
-    background-image: url("../image/gang.png");
+/* 상단영역 */
+.logo{
+    position: absolute;
+    width: 100%;
+    text-align: center;
 }
+.logo a {
+    margin-top: 10px;
+    font-size: 30px;
+    color: #fedc56;
+    text-decoration: none;
+}
+
+/* 메인영역 */
+.cont{
+    background: url("../image/gang.png") no-repeat center/cover;
+    height: 920px;
+}
+.cont2{
+    background: url("../image/main01.jpg") no-repeat center/cover;
+    height: 984px;
+}
+
