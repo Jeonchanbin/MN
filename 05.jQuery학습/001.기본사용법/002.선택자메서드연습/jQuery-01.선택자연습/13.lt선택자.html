@@ -4,8 +4,21 @@
 <meta charset="utf-8">
 <title>  lt 선택자 </title>
 <!-- jQuery library -->
+<script src="./js/jquery-3.6.1.js"></script>
+<script>
+  $(()=>{////////// jGB /////////////
+    // :gt(n) -> greater than ~ 보다 큰
+    // n은 0부터
+    // tkdydqjq: $("선택자:gt(n)")
 
+    // 미션: 5번째 보다 작은 li에 글자 42px 글자색 green을 넣으시오.  
+    $(".li:gt(4)").css({
+      fontSize: "42px",
+      color: "green"
+    });
 
+  });///////////// jQB ///////////////
+</script>
 </head>
 <body>
 
