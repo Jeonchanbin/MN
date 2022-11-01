@@ -28,19 +28,29 @@ body * {
 }
 /* 하단영역 */
 .info {
-    /* 진행방향의 수직정렬 */
+    /* 진행방향 수직정렬 */
     align-items: center;
-    /* 최소높이설정 - 내용이 늘면 늘어남 */
+    /* 최소높이설정 */
     min-height: 100px;
 }
 /* 3-2.회사주소 */
 .info address {
     color: rgb(156, 156, 156);
-    /* 기본 이탤릭 해제 */
     font-style: normal;
-    /* font-family: 'Cute Font', cursive; */
     font-size: 0.9rem;
     line-height: 2rem;
     text-align: center;
 }
+
+.gnb{
+    position: absolute;
+    right: 20px;
+}
+.gnb ul{
+    display: flex;
+}
+.gnb ul>li{
+    position: relative;
+}
+
 
