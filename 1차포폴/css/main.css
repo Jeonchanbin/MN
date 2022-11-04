@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body * {
-    outline: 1px solid yellow;
+    /* outline: 1px solid yellow; */
 }
 
 /* 상단영역 */
@@ -9,12 +9,14 @@ body * {
     position: absolute;
     width: 100%;
     text-align: center;
+    margin-top: 50px;
 }
 .logo a {
     margin-top: 10px;
-    font-size: 30px;
+    font-size: 2.5em;
     color: #fedc56;
     text-decoration: none;
+    font-family: 'DM Serif Text', serif;
 }
 
 /* 메인영역 */
@@ -49,8 +51,15 @@ body * {
 .gnb ul{
     display: flex;
 }
-.gnb ul>li{
+.gnb ul>li a{
     position: relative;
+    font-size: 1.2x;
+    text-decoration: none;
+    color: #fedc56;
+    margin-right: 30px;
+}
+ol, li{
+    list-style: none;
 }
 
 
