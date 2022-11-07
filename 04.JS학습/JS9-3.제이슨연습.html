@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS9-3. 제이슨 연습</title>
+    <script src="./JS9-3.data.json"></script>
+    <script>
+        /* 
+            [ 제이슨(JSON)이란? ]
+            객체형식의 데이터 저장파일
+            객체는 object즉, {속성:값} 형식 데이터포멧
+            - 이전에는 xml이 많이 쓰였으나 지금은 제이슨이 대세임
+            -> 참고 https://www.w3schools.com/js/js_json_intro.asp
+
+            1. 
+
+            2. 변수에 제이슨 파일을 파싱하여 할당한다
+            let 변수명 = JSON.parse(JSON.stringify(제이슨할당변수))
+
+            # 파싱이란? 문자열 데이터를 분석하고 분해하여 
+            목적한 패턴에 맞
+
+        */
+
+        // 변수에 제이슨 파싱후 할당 
+        let myjson = JSON.parse(JSON.stringify(jsonData));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
