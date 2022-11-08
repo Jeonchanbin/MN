@@ -47,19 +47,46 @@ body * {
 .gnb{
     position: absolute;
     right: 20px;
+    padding-top: 2%;
 }
 .gnb ul{
     display: flex;
 }
-.gnb ul>li a{
+.gnb ul>li {
+    /* 렐러티브 포지션 - 부모자격 */
     position: relative;
-    font-size: 1.2x;
+    font-size: 1.1rem;
+    padding: 0 10px;
+    /* 하단패딩-서브메뉴 아웃문제 해결 */
+    padding-bottom: 5px;
+}
+.gnb ul>li a{
+    /* position: relative; */
+    /* font-size: 1.2rem; */
     text-decoration: none;
     color: #fedc56;
     margin-right: 30px;
 }
 ol, li{
     list-style: none;
+}
+.smenu{
+    position: absolute;
+    left: 39%;
+    transform: translate(-60%, 6px);
+    width: 93px;
+    padding: -5px;
+    background-color: #fff;
+    height: 0;
+    transition: .4s ease-out;
+    
+}
+.gnb ul>li:hover .smenu{
+    display: block;
+    height: 40px;
+}
+.smenu li {
+    font-size: .9rem;
 }
 
 
