@@ -80,9 +80,7 @@ body {
 .smenu {
     position: absolute;
     left: 50%;
-    /* 부모는? 싸고있는 li */
-
-    /* 트랜스폼 x축으로 중앙이동! y축은 5px이동 */
+  
     transform: translate(-50%, 5px);
     width: 140px;
     padding: 3px;
@@ -90,7 +88,6 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 5px #fff;
 
-    /* 처음에 안보임! */
     display: none;
 }
 
@@ -132,7 +129,7 @@ body {
 /* 서브메뉴 a요소 */
 .smenu a {
     display: block;
-    /* li요소 패딩안쪽까지 확장! */
+    
 }
 
 /* 서브메뉴 오버시 빨간색 글자 */

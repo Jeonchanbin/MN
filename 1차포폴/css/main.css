@@ -5,6 +5,10 @@ body * {
 }
 
 /* 상단영역 */
+#top{
+    position: fixed;
+    width: 100%;
+}
 .logo{
     position: absolute;
     width: 100%;
@@ -79,10 +83,10 @@ ol, li{
     background-color: #fff;
     height: 0;
     transition: .4s ease-out;
+    overflow: hidden;
     
 }
 .gnb ul>li:hover .smenu{
-    display: block;
     height: 40px;
 }
 .smenu li {
