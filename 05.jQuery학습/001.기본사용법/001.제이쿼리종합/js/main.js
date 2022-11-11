@@ -1,14 +1,13 @@
-
 // 미니언즈 좀비 탈출 애니 구현 JS - main.js
 $(() => {
-    //////// jQB /////////////
+    /////////// jQB ///////////////////
 
     // 로딩확인
-    console.log("로딩완료");
+    console.log("로딩완료!");
 
-    /* 
+    /*********************************** 
         [ 요구사항정리 ]
-        1. 버튼을 클릭하여 미니언즈가 
+        1. 버튼을 클릭하여 미니언즈가
         순서대로 특정위치로 이동하며
         메시지를 보여준다
         2. 각 위치별 좀비를 등장시킨다
@@ -20,11 +19,12 @@ $(() => {
         3. 주사기
         4. 헬기
 
-        [ 이벤트와 이벤트 대상 ]
-        1. 이벤트: 클릭이벤트
-        2. 이벤트대상: 버튼들 
-        3. 기능구분: 버튼글자(지시사항)
-    */
+        [ 이벤트와 이벤트대상  ]
+        1. 이벤트 : 클릭이벤트
+        2. 이벤트대상 : 버튼들
+        3. 기능구분 : 버튼글자(지시사항)
+
+    ***********************************/
 
     // 0. 주인공들 변수에 할당!
     // (1) 미니언즈
@@ -72,7 +72,7 @@ $(() => {
     }); //////////// each ////////////////
 
     // 좀비는 모두 숨기기
-    $(".mz").delay(3000).hide(3000);
+    $(".mz").hide();
     // 시간없는 hide()는 display:none처리함!
 
     // 2. 버튼 셋팅하기
@@ -80,87 +80,219 @@ $(() => {
     // 버튼.숨겨().첫번째().보여()
     btns.hide().first().show();
 
-    // 3. 공통함수 : actMini()
-    const actMini = (ele,seq,mtxt) => {
-        // 전달값 (ele-버튼요소,seq-방순번,mtxt-메시지)
+    // 3. 공통함수 : actMini() ///////////////////////
+    const actMini = (ele, seq, fn) => {
+        // 전달값 (ele-버튼요소,seq-방순번,fn-콜백함수)
+        // 1. 클릭된 버튼 사라지기
+        $(ele).slideUp(300);
+        // slideUp(시간,이징,함수)
+        // 높이값이 0되면서 애니, 0된후 display:none처리함
 
-         // 1. 클릭된 버튼 사라지기
-         $(ele).slideUp(300);
-         // slideUp(시간,이징,함수)
-         // 높이값이 0되면서 애니, 0된 후 display:none처리함
- 
-         // 2. 메시지 없애기: .msg -> msg변수
-         msg.fadeOut(300);
-         // fadeOut(시간,이징,함수)
-         // 서서히 사라짐, 사라진 후 display:none처리됨
-         
-         // 3. 메시지 함수 : msgFn()
-         const msgFn = txt => {
-             msg.text(txt) // 텍스트 변경
-             .fadeIn(300); // 나타나기
-             // 다음버튼 보이기
-             $(ele).next()
-             .delay(500).slideDown(300);
-             // slideDown(시간,이징,함수)
-             // - 자동으로 원래 높이값 복원 애니
-             // 최초상태는 항상 display:none
-         }; //////// msgFn 함수 /////////
- 
-         // 4. 이동하기
-         // 위치: li 8번방 -> bd변수에 모든 li있음
-         let pos = [];
-         // 대상: li의 몇번째(seq)
-         let room = bd.eq(seq);
-         // top 위치값
-         pos[0] = room.offset().top;
-         // left위치값 : 중앙위치보정 ( + li절반 - 미니언즈절반)
-         pos[1] = room.offset().left + room.width()/2 - mi.width()/2;
-         console.log(pos);
- 
-         // 미니언즈 위치 이동하기 애니메이션
-         // 대상: .mi -> mi변수
-         mi.animate({
-             top: pos[0] + "px",
-             left: pos[1] + "px"
-         },800,"easeOutElastic",
-         msgFn(mtxt));
-         // animate({CSS설정},시간,이징,함수)
-         // 모든 제이쿼리 애니메이션 메서드에는
-         // 끝난후 실행함수가 있다 (콜백함수)
-    };/////////// actMini 함수 ///////////
+        // 2. 메시지 없애기 : .msg -> msg변수
+        msg.fadeOut(300);
+        // fadeOut(시간,이징,함수)
+        // 서서히 사라짐,사라진후 display:none처리됨
 
-    // 4. 들어가기 버튼 클릭시 /////////////////
-    btns.first().click(function(){
-       actMini(this,8,"옆방으로 가보자")
-    })
-    // 5. 옆방으로! 버튼 클릭시 /////////////////
-    .next()
-    .click(function(){
+        // 3. 이동하기
+        // 위치: li 8번방 -> bd변수에 모든 li있음
+        let pos = [];
+        // 대상: li의 몇번째(seq)
+        let room = bd.eq(seq);
+        // top 위치값
+        pos[0] = room.offset().top;
+        // left 위치값 : 중앙위치보정(+li절반-미니언즈절반)
+        pos[1] = room.offset().left + room.width() / 2 - mi.width() / 2;
+        // console.log(pos);
 
-        // 이동후 함수 //////////////////////
-        let 
-        actMini(this,9,"우왕")
-    })
-    // 6. 윗층으로 도망가! 버튼 클릭시 /////////////////
-    .next()
-    .click(function(){})
-    // 7. 다시옆방으로! 버튼 클릭시 /////////////////
-    .next()
-    .click(function(){})
-    // 8. 무서우니 윗층으로! 버튼 클릭시 /////////////////
-    .next()
-    .click(function(){})
-    // 9. 치료주사방으로! 버튼 클릭시 /////////////////
-    .next()
-    .click(function(){})
-    // 10. 3번방으로! 버튼 클릭시 /////////////////
-    .next()
-    .click(function(){})
-    // 11. 1번방으로! 버튼 클릭시 /////////////////
-    .next()
-    .click(function(){})
-    // 12. 헬기를 호출! 버튼 클릭시 /////////////////
-    .next()
-    .click(function(){})
+        // 미니언즈 위치이동하기 애니메이션
+        // 대상: .mi -> mi변수
+        mi.animate(
+            {
+                top: pos[0] + "px",
+                left: pos[1] + "px",
+            },
+            800,
+            "easeOutElastic",
+            // 메시지호출:콜백함수
+            fn
+        );
+        // animate({CSS설정},시간,이징,함수)
+        // 모든 제이쿼리 애니메이션 메서드에는
+        // 끝난후 실행함수가 있다!(콜백함수)
+    }; /////////// actMini함수 //////////
 
-}); ////////////// jQB ////////////////
+    // 4. 들어가기 버튼 클릭시 ///////////////
+    btns.first()
+        .click(function () {
+            // 이동후 함수 /////////////////
+            let fn = () => {
+                msg.text("와~! 아늑하다! 옆방으로 가보자!") // 텍스트 변경
+                    .fadeIn(300); // 나타나기
+                // 다음버튼 보이기
+                $(this).next().delay(500).slideDown(300);
+                // slideDown(시간,이징,함수)
+                // - 자동으로 원래 높이값복원 애니
+                // - 최초상태는 항상 display:none이다!
+            }; //////// fn함수 /////////////
+
+            actMini(this, 8, fn);
+        })
+        // 5. 옆방으로! 버튼 클릭시 ///////////////
+        .next()
+        .click(function () {
+            // 일반익명함수로 해야 this가 버튼임!
+            // ()=> { 화살표함수는 내부의 this가 바깥으로 나가 window가 잡힌다!
+            // 이동후 함수 /////////////////
+            let fn = () => {
+                // 좀비 나타나기(2초후)
+                bd.eq(9)
+                    .find(".mz")
+                    .delay(2000)
+                    .fadeIn(
+                        400,
+                        // function(){ // 내부의 this의미가 달라짐!
+                        () => {
+                            // 화살표함수는 바깥싸고 있는 function 익명함수의
+                            // 주인인 버튼이 this임!
+
+                            // 좀비가 나타난 후 메시지 보이기
+                            msg.html("악!;;;; 좀비!<br>어서피하자!") // 텍스트 변경
+                                .css({ left: "-87%" }) // 위치변경
+                                .fadeIn(300); // 나타나기
+
+                            // 다음버튼 보이기
+                            $(this).next().delay(500).slideDown(300);
+
+                            // this는 누구인가? 확인!
+                            console.log(this);
+                            // this는 이벤트걸린 버튼임!(화살표함수라 나감!)
+                        }
+                    ); //////// fadeIn ///////
+            }; //////// fn함수 /////////////
+
+            actMini(this, 9, fn);
+        })
+        // 6. 윗층으로 도망가! 버튼 클릭시 ///////////////
+        .next()
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {
+                // 메시지 보이기
+                msg.html(`여긴없겠지?`).fadeIn(200);
+
+                // 좀비보이기
+                bd.eq(7)
+                    .find(".mz")
+                    .delay(1000)
+                    .fadeIn(400, () => {
+                        // 메시지 변경하기
+                        msg.html(`악, 여기도!!!`);
+                        // 다음버튼 보이기
+                        $(this).next().slideDown(300);
+                    });
+            };
+
+            // 액션함수호출
+            actMini(this, 7, fn);
+        })
+        // 7. 다시옆방으로! 버튼 클릭시 ///////////////
+        .next()
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {
+                // 첫번째 메시지
+                msg.html(`여긴 없겠지?`)
+                    .fadeIn(200)
+                    .delay(1000) // 1초지연(지연시간은 애니메이션메서드 앞)
+                    .fadeIn(200, () => {
+                        // 두번째 메시지
+                        msg.html(`그래도 무서우니
+                    <br>윗층으로 가자!`);
+                        // 다음버튼 보이기
+                        $(this).next().slideDown(300);
+                    }); /////// fadeIn ////////
+            };
+
+            // 액션함수호출
+            actMini(this, 6, fn);
+        })
+        // 8. 무서우니 윗층으로! 버튼 클릭시 ///////////////
+        .next()
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {
+                // 무.서.워... 메시지
+                msg.text('무')
+                .fadeIn(200)
+                .delay(500)
+                .fadeIn(200,()=>msg.text('무.'))
+                .delay(500)
+                .fadeIn(200,()=>msg.text('무.서'))
+                .delay(500)
+                .fadeIn(200,()=>msg.text('무.서.'))
+                .delay(500)
+                .fadeIn(200,()=>msg.text('무.서.워'))
+                .delay(500)
+                .fadeIn(200,()=>msg.text('무.서.워.'))
+                .delay(500)
+                .fadeIn(200,()=>msg.text('무.서.워..'))
+                .delay(500)
+                .fadeIn(200,()=>msg.text('무.서.워...'))
+                .delay(500)
+                .fadeIn(200,
+                    ()=>{
+                        // 7번방 좀비가 올라와서
+                        // 달겨든다!
+                        bd.eq(7).find(".mz")
+                        .animate({ // 윗층으로 올라옴
+                            bottom:bd.eq(7).height()+"px"
+                            // li 높이값 만큼 bottom을 올려준다!
+                        },500,"easeOutElastic")
+                        .delay(500) // 기다림
+                        .animate({ // 달겨들기
+                            right:bd.eq(7).width()+"px"
+                        },1000,"easeOutBounce")
+                    })
+
+            };
+
+            // 액션함수호출
+            actMini(this, 4, fn);
+        })
+        // 9. 치료주사방으로! 버튼 클릭시 ///////////////
+        .next()
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {};
+
+            // 액션함수호출
+            actMini(this, 7, fn);
+        })
+        // 10. 3번방으로! 버튼 클릭시 ///////////////
+        .next()
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {};
+
+            // 액션함수호출
+            actMini(this, 7, fn);
+        })
+        // 11. 1번방으로! 버튼 클릭시 ///////////////
+        .next()
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {};
+
+            // 액션함수호출
+            actMini(this, 7, fn);
+        })
+        // 12. 헬기를 호출! 버튼 클릭시 ///////////////
+        .next()
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {};
+
+            // 액션함수호출
+            actMini(this, 7, fn);
+        });
+}); /////////////// jQB ////////////////////
