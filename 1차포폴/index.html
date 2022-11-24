@@ -1,110 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Thug Club Frame</title>
+        <!-- 메인CSS -->
+        <link rel="stylesheet" href="./css/main.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <title>Thug Club Frame</title>
-    <!-- 메인CSS -->
-    <link rel="stylesheet" href="./css/main.css">
+        <style></style>
 
-    <style>
+        <!-- 제이쿼리 라이브러리 UI -->
+        <script src="./js/jquery-3.6.1.min.js"></script>
+        <script src="./js/jquery-ui.min.js"></script>
 
-    </style>
-    <!-- 제이쿼리 라이브러리 CDN -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(()=>{
+                let scTop;
+                let scsts=0;
+                let winH = $(window).height();
+                $(window).scroll(()=>{
+                    scTop = $(this).scrollTop();
+                    console.log(scTop);
 
-<!-- 제이쿼리 UI CDN -->
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-<script src="./css/"></script>
-<script>
-    $(()=>{
-        // let scTop;
-        // let scsts=0;
-        // let winH = $(window).height();
-        // $(window).scroll(()=>{
-        //     scTop = $(this).scrollTop();
-        //     console.log(scTop);
+                    if(scTop >= 100 &&
+                    scTop < 300 &&
+                    scsts===0)
+                    {11
+                        scsts = 1;
+                        $("html,body").stop().animate({
+                            scrollTop:
+                           winH +"px"
+                        },300);
 
-        //     if(scTop >= 100 && 
-        //     scTop < 300 && 
-        //     scsts===0)
-        //     {11#
-        //         scsts = 1;
-        //         $("html,body").stop().animate({
-        //             scrollTop: 
-        //            winH +"px"
-        //         },300);
-                
-        //         // ,()=>{
-        //         //     $("html,body")
-        //         //     .css({overflow:"hidden"})
-        //         // })
-        //     }else if(scTop > winH && 
-        //     scTop < winH+100 &&
-        //     scsts === 1)
-        //     {
-        //         scsts = 0;
-        //         $("html,body").stop().animate({
-        //             scrollTop: 
-        //         "0px"
-        //         },300);
-        //     }
-        // })
-    })
-</script>
-</head>
-<body>
-    <!-- 1. 상단영역 -->
-    <div id="top">
-        <div class="logo">
-            <a href="#">THUG CLUB</a>
+                    // ,()=>{
+                    //     $("html,body")
+                    //     .css({overflow:"hidden"})
+                    // })
+                    }else if(scTop > winH &&
+                    scTop < winH+100 &&
+                    scsts === 1)
+                    {
+                        scsts = 0;
+                        $("html,body").stop().animate({
+                            scrollTop:
+                        "0px"
+                        },300);
+                    }
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <!-- 1. 상단영역 -->
+        <div id="top">
+            <div class="logo">
+                <a href="#">THUG CLUB</a>
+            </div>
+            <nav class="gnb">
+                <ul>
+                    <li>
+                        <a href="#">KR</a>
+                        <!-- 서브메뉴 -->
+                        <div class="smenu">
+                            <ol>
+                                <li>
+                                    <a href="#">KR</a>
+                                </li>
+                                <li>
+                                    <a href="#">EN</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">SEARCH</a>
+                    </li>
+
+                    <li>
+                        <a href="#">LOGIN</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <nav class="gnb">
-            <ul>
-                <li>
-                    <a href="#">KR</a>
-                    <!-- 서브메뉴 -->
-                    <div class="smenu">
-                        <ol>
-                            <li>
-                                <a href="#">KR</a>
-                            </li>
-                            <li>
-                                <a href="#">EN</a>
-                            </li>
-                        </ol>
+        <!-- 2. 메인영역 -->
+        <div id="cont">
+            <main class="cont ibx"></main>
+            <main class="cont2 ibx"></main>
+        </div>
+        <!-- 3. 하단영역 -->
+        <div id="info">
+            <div class="info idx">
+                <footer>
+                    <!-- 회사주소 -->
+                    <div>
+                        <address>
+                            04343 서울특별시 용산구 회나무로 9 (이태원동)
+                            <span>
+                                <br />
+                                주)떠그클럽 조영민 0538542276 7748102506
+                                신고준비중 3층 © 주)떠그클럽. All rights
+                                reserved.
+                            </span>
+                        </address>
                     </div>
-                </li>
-                <li>
-                    <a href="#">SEARCH</a>
-                <li>
-                    <a href="#">LOGIN</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <!-- 2. 메인영역 -->
-    <div id="cont">
-        <main class="cont ibx"></main>
-        <main class="cont2 ibx"></main>
-    </div>
-    <!-- 3. 하단영역 -->
-    <div id="info">
-        <div class="info idx">
-            <footer>
-                <!-- 회사주소 -->
-                <div>
-                    <address>
-                        04343 서울특별시 용산구 회나무로 9 (이태원동) 
-                        <span>
-                            <br>
-                            주)떠그클럽 조영민 0538542276 7748102506 신고준비중  3층 © 주)떠그클럽. All rights reserved.
-                        </span>
-                    </address>
-                </div>
-            </footer>
-        </div> 
-    </div>
-</body>
-
+                </footer>
+            </div>
+        </div>
+    </body>
 </html>

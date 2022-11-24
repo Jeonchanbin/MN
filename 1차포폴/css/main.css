@@ -39,14 +39,6 @@ body * {
     /* 최소높이설정 */
     min-height: 100px;
 }
-/* 3-2.회사주소 */
-.info address {
-    color: rgb(156, 156, 156);
-    font-style: normal;
-    font-size: 0.9rem;
-    line-height: 2rem;
-    text-align: center;
-}
 
 .gnb{
     position: absolute;
@@ -93,4 +85,15 @@ ol, li{
     font-size: .9rem;
 }
 
+/* 하단영역 */
+.info{
+    background-color: #000;
+}
+.info address {
+    color: rgb(156, 156, 156);
+    font-style: normal;
+    font-size: 0.9rem;
+    line-height: 2rem;
+    text-align: center;
+}
 
