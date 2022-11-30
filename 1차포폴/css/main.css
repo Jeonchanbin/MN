@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @import url(core.css);
+@import url(common.css);
 /* body * {
     outline: 1px solid yellow;
 */
@@ -33,19 +34,12 @@
     background: url("../image/main02.jpg") no-repeat center/cover;
     height: 984px;
 }
-/* 하단영역 */
-.info {
-    /* 진행방향 수직정렬 */
-    align-items: center;
-    /* 최소높이설정 */
-    min-height: 100px;
-}
 
 
 .gnb2{
     position: absolute;
     right: 20px;
-    padding-top: 2%;
+    margin: 30px;
 }
 .gnb2 ul{
     display: flex;
@@ -59,7 +53,7 @@
     padding-bottom: 5px;
 }
 .gnb1{
-    transform: translate(17px,3px);
+    transform: translate(51px,30px);
     width: 10px;
     padding-top: 2%;
 }
@@ -104,14 +98,74 @@ ol, li{
     overflow: hidden;
     
 }
+
 .gnb2 ul>li:hover .smenu{
     height: 40px;
 }
+
 .smenu li {
     font-size: .9rem;
 }
 
+/* 햄버거버튼 */
+.ham {
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 48px;
+    z-index: 99999;
+    /* GNB박스 보다 위 */
+    /* outline: 1px solid blue; */
+}
 
+/* 햄버거 버튼바 */
+.ham span {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: #000;
+
+    /* 트랜지션 */
+    transition: 0.3s;
+}
+
+.ham.on span {
+    background-color: #fff;
+}
+
+.ham span:nth-child(1) {
+    top: 0px;
+}
+
+.ham span:nth-child(2) {
+    top: 20px;
+    left: -50%;
+}
+
+.ham span:nth-child(3) {
+    top: 40px;
+}
+
+/* 햄버거 마우스 오버시 */
+.ham:hover span:nth-child(2) {
+    left: 0;
+}
+
+/* 클릭이벤트 JS처리시 클래스 on 셋팅 */
+.ham.on span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 20px;
+}
+
+.ham.on span:nth-child(2) {
+    width: 0;
+    left: 50%;
+}
+
+.ham.on span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 20px;
+}
 
 /* 하단영역 */
 .info{
