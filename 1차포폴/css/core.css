@@ -4,3 +4,6 @@
 /* 
     font-family: 'DM Serif Text', serif;
 */
+html,body{
+    overflow: hidden;
+}
