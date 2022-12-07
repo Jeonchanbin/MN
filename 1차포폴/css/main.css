@@ -71,9 +71,18 @@
 .gnb2 ul{
     display: flex;
 }
+.gnb2 ol{
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    text-align: center;
+}
+
 .gnb2 ul>li {
     /* 렐러티브 포지션 - 부모자격 */
-    position: relative;
+    /* position: relative; */
     font-size: 1.1rem;
     padding: 0 17px;
     /* 하단패딩-서브메뉴 아웃문제 해결 */
@@ -86,9 +95,9 @@
     border-right: 1px solid #9e9e9e;
     border-bottom: 1px solid #9e9e9e;
     position: absolute;
-    right: 20px;
+    right: 274px;
     content: " ";
-    top: 10px;
+    top: 23px;
     transform: rotate(45deg);
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
@@ -102,20 +111,24 @@
 
 .smenu{
     position: absolute;
-    left: 39%;
-    transform: translate(-60%, 6px);
-    width: 93px;
-    padding: -5px;
+    left: 30%;
+    transform: translate(-103%, 7px);
+    width: 79px;
+    height: 0%;
     background-color: #fff;
-    height: 0;
-    transition: .4s ease-out;
+    /* height: 0;
+    transition: .4s ease-out; */
     overflow: hidden;
     
 }
-
-.gnb2 ul>li:hover .smenu{
-    height: 40px;
+.smenu ol>li a{
+    left: 50px;
+    margin: 0;
+    padding: 0;
 }
+/* .gnb2 ul>li:hover .smenu{
+    height: 40px;
+} */
 
 .smenu li {
     font-size: .9rem;
