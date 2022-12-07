@@ -207,11 +207,11 @@
 /* 메인영역 */
 .cont{
     background: url("../image/main01.jpg") no-repeat center/cover;
-    height: 920px;
+    height: 100vh;
 }
 .cont2{
     background: url("../image/main02.jpg") no-repeat center/cover;
-    height: 984px;
+    height: 100vh;
 }
 
 /* 하단영역 */
