@@ -25,10 +25,46 @@
     font-family: 'DM Serif Text', serif;
 }
 
-
-
+.gnb1{
+    /* position: absolute; */
+    transform: translate(60px,36px);
+    width: 100px;
+    height: 500px;
+    padding-top: 2%;
+}
+.gnb1>a{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #fedc56;
+}
+.gnb1 ol{
+    position: relative;
+    top: -80%;
+    margin: 0;
+    padding: 0;
+    height: 300px;
+}
+.gnb1 ol>li a{
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #fedc56;
+    line-height: 35px;
+}
+.shopmenu{
+    position: absolute;
+    /* left: 39%; */
+    transform: translate(6%, 7px);
+    height: 300px;
+    overflow: hidden;
+    /* transition: .4s ease-out; */
+    /* overflow: hidden; */
+}
+/* .gnb1 a:hover .shopmenu{
+    height: 500px;
+} */
 .gnb2{
     position: absolute;
+    top: 50px;
     right: 20px;
     margin-right: 30px;
 }
@@ -39,20 +75,11 @@
     /* 렐러티브 포지션 - 부모자격 */
     position: relative;
     font-size: 1.1rem;
-    padding: 0 10px;
+    padding: 0 17px;
     /* 하단패딩-서브메뉴 아웃문제 해결 */
     padding-bottom: 5px;
 }
-.gnb1{
-    transform: translate(51px,30px);
-    width: 10px;
-    padding-top: 2%;
-}
-.gnb1 a{
-    font-size: 1.1rem;
-    text-decoration: none;
-    color: #fedc56;
-}
+/* smenu 꺽쇠표시 */
 .gnb2 ul>li:first-child>a::after{    
     width: 5px;
     height: 5px;
@@ -68,15 +95,11 @@
     transition: all 0.2s ease-in-out;
 }
 .gnb2 ul>li a{
-    /* position: relative; */
-    /* font-size: 1.2rem; */
     text-decoration: none;
     color: #fedc56;
     margin-right: 30px;
 }
-ol, li{
-    list-style: none;
-}
+
 .smenu{
     position: absolute;
     left: 39%;
