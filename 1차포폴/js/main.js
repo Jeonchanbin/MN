@@ -10,7 +10,7 @@ $(()=>{
 })
 $(()=>{
     let gsts = 0;
-    $(".gnb2 ul>li a").click(function(e){
+    $(".gnb2 ul>li:first-child>a").click(function(e){
         e.preventDefault();
         $(".smenu").animate({height:(gsts?"0%":"72%")});
         gsts?gsts=0:gsts=1;
