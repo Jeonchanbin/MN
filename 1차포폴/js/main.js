@@ -18,3 +18,27 @@ $(()=>{
     }); ////////// click /////////////
 
 })
+
+/* 
+     window.addEventListener("DOMContentLoaded", () => {
+                // 햄버거 셋팅
+                // 대상: .ham
+                const ham = document.querySelector(".ham");
+                // 이벤트 설정
+                ham.onclick = () => {
+                    // GNB박스 & 햄버거버튼에 클래스 on넣기/뺴기
+                    ham.classList.toggle("on");
+                    gnb.classList.toggle("on");
+                }; /////////// click ///////////
+
+                // 전체메뉴셋팅
+                // 대상: .gnb
+                const gnb = document.querySelector(".gnb");
+
+*/
+$(()=>{
+    $(".ham").click(function(e){
+        e.preventDefault();
+        $("#top").toggleClass("on");
+    }); //////////// click ////////////
+})

@@ -125,6 +125,10 @@
     left: 50px;
     margin: 0;
     padding: 0;
+    color: #c2c0c0;
+}
+.smenu ol>li:hover {
+    background-color: #000;
 }
 /* .gnb2 ul>li:hover .smenu{
     height: 40px;
@@ -132,6 +136,7 @@
 
 .smenu li {
     font-size: .9rem;
+    height: 22px;
 }
 
 /* 햄버거버튼 */
@@ -147,8 +152,8 @@
     z-index: 99999;
     position: fixed;
     top: 70px;
-    right: 9px;
-    transition: all 220ms;
+    right: 1%;
+    transition: all .5s ease-out;
 }
 
 /* 햄버거 버튼바 */
@@ -189,21 +194,51 @@
 }
 
 /* 클릭이벤트 JS처리시 클래스 on 셋팅 */
-.ham.on span:nth-child(1) {
+#top.on .ham span:nth-child(1) {
     transform: rotate(45deg);
     top: 20px;
 }
 
-.ham.on span:nth-child(2) {
+#top.on .ham span:nth-child(2) {
     width: 0;
     left: 50%;
 }
 
-.ham.on span:nth-child(3) {
+#top.on .ham span:nth-child(3) {
     transform: rotate(-45deg);
     top: 20px;
 }
-
+.sdm{
+    position: fixed;
+    top: 0;
+    right: -25%;
+    width: 14vw;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 9999;
+    transition: all 0.5s ease-out;
+}
+.sdm ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.sdm ul>li {
+    text-align: center;
+}
+.sdm ul>li a{
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #c2c0c0;
+    line-height: 35px;
+}
+#top.on .sdm {
+    right: 0;
+}
+#top.on .ham{
+    right: 12.7%;
+}
 /* 메인영역 */
 .cont{
     background: url("../image/main01.jpg") no-repeat center/cover;

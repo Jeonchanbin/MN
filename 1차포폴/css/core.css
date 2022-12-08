@@ -8,7 +8,7 @@ html,body{
     overflow: hidden;
     font-family: 'DM Serif Text', serif;
 }
-ol, li{
+ul, ol, li, a{
     list-style: none;
-    
+    text-decoration: none;
 }
