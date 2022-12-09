@@ -4,3 +4,10 @@
     background: url("../image/main01.jpg") no-repeat center/cover;
     height: 100vh;
 }
+
+#wrap {
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    outline: 1px solid yellow;
+}
